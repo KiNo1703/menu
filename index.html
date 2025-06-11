@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кнопки для сайтов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .site-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .site-button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Полезные утилиты</h1>
+    <div class="button-container" id="buttonContainer">
+        <!-- Кнопки будут добавлены через JavaScript -->
+    </div>
+
+    <script>
+        // Массив с данными о сайтах (название и URL)
+        const sites = [
+            { name: "Генераторы", url: "https://kino1703.github.io/hex-commands-generator/" },
+            { name: "Овнеры", url: "https://kino1703.github.io/owner/" },
+            { name: "GitHub", url: "https://github.com" },
+            { name: "Wikipedia", url: "https://www.wikipedia.org" },
+            { name: "Яндекс", url: "https://yandex.ru" },
+            { name: "ВКонтакте", url: "https://vk.com" }
+        ];
+
+        // Получаем контейнер для кнопок
+        const buttonContainer = document.getElementById("buttonContainer");
+
+        // Создаем кнопки для каждого сайта
+        sites.forEach(site => {
+            const button = document.createElement("button");
+            button.className = "site-button";
+            button.textContent = site.name;
+            button.onclick = function() {
+                window.open(site.url, "_blank");
+            };
+            buttonContainer.appendChild(button);
+        });
+    </script>
+</body>
+</html>
